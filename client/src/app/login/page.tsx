@@ -11,7 +11,7 @@ type FormData = {
   password: string;
 };
 
-export const Page = () => {
+export default function Page () {
   const { register, handleSubmit } = useForm<FormData>();
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
@@ -84,5 +84,3 @@ export const Page = () => {
     </div>
   );
 };
-
-export default Page;

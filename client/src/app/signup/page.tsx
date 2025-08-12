@@ -12,7 +12,7 @@ type FormData = {
   agreeTerms: boolean;
 };
 
-export const Signup = () => {
+export default function Signup () {
   const { register, handleSubmit } = useForm<FormData>();
     const router = useRouter();
 
@@ -112,5 +112,3 @@ export const Signup = () => {
     </div>
   );
 };
-
-export default Signup;
