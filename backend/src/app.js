@@ -9,12 +9,12 @@ import dotenv from "dotenv";
 
 
 const app = express();
-dotenv.config(); // Esto carga las variables de .env
+dotenv.config({ quiet: true }); 
 
 
 app.use(cors({
- origin: process.env.FRONTEND_URL,   // URL de tu app Next.js
-  credentials: true                // Si usas cookies o autenticación
+ origin: process.env.FRONTEND_URL,   
+  credentials: true                
 }));
 
 app.get('/', (req, res) => {
