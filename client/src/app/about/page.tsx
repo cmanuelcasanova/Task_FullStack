@@ -1,4 +1,4 @@
-export const About = () => {
+export default function About () {
   return (
    <div className="text-white pt-10 flex flex-col items-center text-center px-4 max-w-2xl mx-auto">
 
@@ -89,4 +89,3 @@ export const About = () => {
   );
 };
 
-export default About;
