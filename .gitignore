@@ -1,0 +1,20 @@
+# .gitignore
+# Node
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Next.js
+.next/
+out/
+
+# Logs
+logs
+*.log
+
+# OS
+.DS_Store
+
+# Optional: Vercel/Render config
+.vercel/
