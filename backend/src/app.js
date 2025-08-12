@@ -17,6 +17,10 @@ app.use(cors({
   credentials: true                // Si usas cookies o autenticación
 }));
 
+app.get('/', (req, res) => {
+  res.send('Backend activo  🚀');
+});
+
 
 app.use(express.json());
 app.use(cookieParser());
