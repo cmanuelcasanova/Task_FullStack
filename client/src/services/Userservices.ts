@@ -20,7 +20,7 @@ type resdato = {
 
 export async function registerUser(data: Regis) {
   try {
-    const { agreeTerms, ...dataToSend } = data;
+    const { ...dataToSend } = data;
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
       method: "POST",

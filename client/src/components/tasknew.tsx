@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../app/store/store";
 
 type Props = {
-  onRecargar: () => void;
+  onRecargar: () => Promise<void>;
 };
 
 export const Tasknew: React.FC<Props> = ({ onRecargar }) => {
@@ -18,7 +18,7 @@ export const Tasknew: React.FC<Props> = ({ onRecargar }) => {
   const fetchPost = async (title: string, username: string) => {
     if (title !== "") {
       try {
-        const data = await createTask({ title, username });
+        await createTask({ title, username });
         await onRecargar();
       } catch (err) {
         console.error(err);
