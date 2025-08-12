@@ -11,7 +11,7 @@ type FormData = {
   password: string;
 };
 
-export default function Page () {
+export default function Login () {
   const { register, handleSubmit } = useForm<FormData>();
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
