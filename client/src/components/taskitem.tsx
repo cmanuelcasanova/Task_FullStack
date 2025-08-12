@@ -85,7 +85,7 @@ export const Taskitem = ({ titulo, clave, done, onRecargar }: Props) => {
             ref={inputRef}
             disabled={!edit}
             className={`border-2 h-10 w-full sm:w-80 border-[#1b2936] px-3 ${
-              flag ? "line-through" : "overline"
+              flag ? "line-through" : "no-underline"
             }`}
           />
           {edit && (
