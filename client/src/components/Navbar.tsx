@@ -22,11 +22,26 @@ export default function Nav() {
   const user = useSelector((state: RootState) => state.user.user);
 
   const navItems = [
-    { href: "/", label: "Home", icon: <FaHome />, position: "L" },
-    { href: "/about", label: "About", icon: <FaInfoCircle />, position: "L" },
-    { href: "/porfile", label: "Porfile",icon: <FaInfoCircle />, position: user==="Invited" ? "-" : "L",},
-    { href: user==="Invited" ? "/login" : "/porfile", label: user==="Invited" ? "Login" : user ,icon: user==="Invited" ? <MdLogin /> : <VscVmActive /> , position: "R",},
-    { href: "/signup", label: "Register", icon: <FaUser />, position: user==="Invited" ? "R" : "-" ,},
+    { id: 1, href: "/", label: "Home", icon: <FaHome />, position: "L" },
+    { id: 2,href: "/about", label: "About", icon: <FaInfoCircle />, position: "L" },
+    {
+      id: 3,href: "/porfile",
+      label: "Porfile",
+      icon: <FaInfoCircle />,
+      position: user === "Invited" ? "-" : "L",
+    },
+    {
+      id: 4,href: user === "Invited" ? "/login" : "/porfile",
+      label: user === "Invited" ? "Login" : user,
+      icon: user === "Invited" ? <MdLogin /> : <VscVmActive />,
+      position: "R",
+    },
+    {
+      id: 5,href: "/signup",
+      label: "Register",
+      icon: <FaUser />,
+      position: user === "Invited" ? "R" : "-",
+    },
   ];
 
   const leftItems = navItems.filter((item) => item.position === "L");
@@ -37,17 +52,18 @@ export default function Nav() {
 
   const handleLogout = async () => {
     const res = await logoutUser(dispatch);
+    setMenuOpen(!menuOpen)
     if (res) router.push("/"); // redirige después del login
   };
 
   return (
     <>
       {/* 🧭 NAV */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0f1a] text-white px-6 flex items-center shadow-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0a0f1a] text-white pl-2 pr-6 flex items-center shadow-md">
         {/* Izquierda */}
 
         <Link href="/">
-          <div className="relative h-15 w-44 rounded-2xl overflow-hidden m-2 mr-4">
+          <div className="relative h-10 w-30 sm:h-15 sm:w-44 rounded-2xl overflow-hidden my-2 mr-4">
             <Image
               src="/Mundo_Nova_Solutions.png"
               alt="Logo"
@@ -104,7 +120,7 @@ export default function Nav() {
           })}
         </div>
 
-        {user!=="Invited" && (
+        {user !== "Invited" && (
           <div className="hidden md:flex">
             <button
               onClick={handleLogout}
@@ -120,11 +136,13 @@ export default function Nav() {
       {/* 🧭 Dropdown en mobile (flujo normal) */}
       {menuOpen && (
         <div className="bg-[#0a0f1a] text-white px-6 py-2 mt-20 shadow-md flex flex-col gap-2 md:hidden">
-          {navItems.map(({ href, label, icon }) => {
+          {navItems.map(({ href, label, icon,id,position }) => {
             const isActive = pathname === href;
             return (
+
+              position!=="-" &&
               <Link
-                key={href}
+                key={id}
                 href={href}
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-200
@@ -136,6 +154,17 @@ export default function Nav() {
               </Link>
             );
           })}
+          {user !== "Invited" && (
+            
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-200 hover:bg-red-600"
+              >
+                <AiOutlineLogout />
+                Cerrar sesión
+              </button>
+            
+          )}
         </div>
       )}
     </>

@@ -38,7 +38,7 @@ export default function ProfilePage() {
   if (!user) return null;
 
   return (
-    <div className="max-w-xl mx-auto p-6 pt-6 pb-6 mt-40 border rounded-md bg-[#0b1c2c] text-[#8092a1] bg-[radial-gradient(circle_at_center,_#041424,_#051320,_#080d13)] border-[#1b2936] hover:border-[#677483] transition-colors duration-200">
+    <div className="max-w-xl mx-4 p-6 pt-6 pb-6 mt-40 border rounded-md bg-[#0b1c2c] text-[#8092a1] bg-[radial-gradient(circle_at_center,_#041424,_#051320,_#080d13)] border-[#1b2936] hover:border-[#677483] transition-colors duration-200">
       <h1 className="text-3xl font-bold mb-4">Perfil de Usuario</h1>
       <p><strong>Nombre de usuario:</strong> <span className="text-white">{user.username}</span></p>
       <p><strong>Email:</strong> <span className="text-white">{user.email}</span></p>
