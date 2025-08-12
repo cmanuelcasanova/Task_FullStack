@@ -36,17 +36,17 @@ export const Tasknew: React.FC<Props> = ({ onRecargar }) => {
   });
 
   return (
-    <div className="pt-4 mb-5 flex items-center ">
-      <form className="flex flex-wrap" onSubmit={onSubmit}>
+    <div className="pt-4 mb-5 flex justify-center w-full px-4 ">
+      <form className="flex w-full max-w-md" onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="Input New Task"
           {...register("title")}
-          className="border-2 h-15 w-100 border-[#1b2936] rounded-l-2xl px-3 text-m hover:border-[#677483] transition-colors duration-200"
+          className="flex-grow border-2 h-12 border-[#1b2936] rounded-l-2xl px-3 text-base hover:border-[#677483] transition-colors duration-200"
         />
 
         <button
-          className="bg-[#15508b] flex justify-center border-2 rounded-r-2xl border-[#1b2936] h-15 w-10 items-center hover:bg-blue-700 active:scale-95 transition-transform duration-150"
+          className="bg-[#15508b] flex justify-center items-center border-2 rounded-r-2xl border-[#1b2936] h-12 w-12 hover:bg-blue-700 active:scale-95 transition-transform duration-150"
           type="submit"
         >
           {" "}

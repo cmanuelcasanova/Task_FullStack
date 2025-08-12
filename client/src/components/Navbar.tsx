@@ -59,7 +59,7 @@ export default function Nav() {
           </div>
         </Link>
 
-        <div className="flex gap-6">
+        <div className="hidden md:flex gap-6">
           {leftItems.map(({ href, label, icon }) => {
             const isActive = pathname === href;
             return (
@@ -119,8 +119,8 @@ export default function Nav() {
 
       {/* 🧭 Dropdown en mobile (flujo normal) */}
       {menuOpen && (
-        <div className="bg-[#0a0f1a] text-white px-6 py-2 shadow-md flex flex-col gap-2 md:hidden">
-          {rightItems.map(({ href, label, icon }) => {
+        <div className="bg-[#0a0f1a] text-white px-6 py-2 mt-20 shadow-md flex flex-col gap-2 md:hidden">
+          {navItems.map(({ href, label, icon }) => {
             const isActive = pathname === href;
             return (
               <Link

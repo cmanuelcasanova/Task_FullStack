@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { IoIosSave } from "react-icons/io";
 import { motion } from "framer-motion";
 
-
 type Props = {
   clave: string;
   titulo: string;
@@ -47,7 +46,6 @@ export const Taskitem = ({ titulo, clave, done, onRecargar }: Props) => {
     const nuevoEstado_e = !edit;
     setEdit(nuevoEstado_e);
     const value = inputRef.current?.value;
-    
 
     await updateTaskPartial(clave, { title: value });
     router.refresh();
@@ -60,7 +58,6 @@ export const Taskitem = ({ titulo, clave, done, onRecargar }: Props) => {
   };
 
   return (
-
     <motion.div
       key={clave}
       initial={{ opacity: 0, y: 20 }}
@@ -69,57 +66,52 @@ export const Taskitem = ({ titulo, clave, done, onRecargar }: Props) => {
       transition={{ duration: 0.3 }}
       className="shadow"
     >
-
-
-
-    <div className="pt-4 flex items-center">
-      <button
-        className="bg-[#15508b] flex justify-center items-center rounded-l-2xl border-2 border-[#1b2936] h-10 w-10 transition-colors duration-300"
-        onClick={completar}
-      >
-        {flag ? (
-          <FaRegCheckCircle size={20} />
-        ) : (
-          <MdOutlineRadioButtonUnchecked size={20} />
-        )}
-      </button>
-
-      <div className="relative w-80">
-        <input
-          type="text"
-          defaultValue={titulo ?? ""}
-          ref={inputRef}
-          disabled={edit ? false : true}
-          className={`border-2 h-10 w-80 border-[#1b2936] px-3 flex items-center ${
-            flag ? "line-through" : "overline"
-          }  `}
-        />
-
-        {edit &&
+      <div className="pt-4 flex flex-wrap items-center w-full">
         <button
-          onClick={guardar}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-500 text-white h-10 w-10 flex justify-center items-center"
-        ><IoIosSave size={20} /></button>}
+          className="bg-[#15508b] flex justify-center items-center rounded-l-2xl border-2 border-[#1b2936] h-10 w-10 transition-colors duration-300"
+          onClick={completar}
+        >
+          {flag ? (
+            <FaRegCheckCircle size={20} />
+          ) : (
+            <MdOutlineRadioButtonUnchecked size={20} />
+          )}
+        </button>
+
+        <div className="relative flex-1 min-w-[150px] max-w-md">
+          <input
+            type="text"
+            defaultValue={titulo ?? ""}
+            ref={inputRef}
+            disabled={!edit}
+            className={`border-2 h-10 w-full sm:w-80 border-[#1b2936] px-3 ${
+              flag ? "line-through" : "overline"
+            }`}
+          />
+          {edit && (
+            <button
+              onClick={guardar}
+              className="absolute right-1 top-1/2 -translate-y-1/2 bg-blue-500 text-white h-8 w-8 flex justify-center items-center rounded-md"
+            >
+              <IoIosSave size={18} />
+            </button>
+          )}
+        </div>
+
+        <button
+          onClick={editar}
+          className="bg-[#098a32] border-2 border-[#1b2936] h-10 w-10 flex items-center justify-center active:scale-95 transition-transform duration-150"
+        >
+          <CiEdit size={20} />
+        </button>
+
+        <button
+          onClick={borrar}
+          className="bg-[#7a0e0e] border-2 rounded-r-2xl border-[#1b2936] h-10 w-10 flex items-center justify-center active:scale-95 transition-transform duration-150"
+        >
+          <FaRegTrashAlt size={20} />
+        </button>
       </div>
-
-      <button
-        onClick={editar}
-        className="bg-[#098a32] border-2 border-[#1b2936] h-10 w-10 flex items-center justify-center active:scale-95 transition-transform duration-150"
-      >
-    
-        <CiEdit size={20} />
-      </button>
-
-      <button
-        onClick={borrar}
-        className="bg-[#7a0e0e] border-2 rounded-r-2xl border-[#1b2936] h-10 w-10 flex items-center justify-center active:scale-95 transition-transform duration-150"
-      >
-      
-        <FaRegTrashAlt size={20} />
-      </button>
-    </div>
-
-      </motion.div>
-
+    </motion.div>
   );
 };

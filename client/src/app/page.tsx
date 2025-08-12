@@ -39,8 +39,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="text-white flex flex-col content-center mt-20">
-      <div className=" flex flex-col items-center self-center mt-10 pt-10 h-200 w-140 bg-[radial-gradient(circle_at_center,_#041424,_#051320,_#080d13)] border-2 border-[#1b2936] rounded-3xl hover:border-[#677483] transition-colors duration-200">
+    <div className="text-white flex flex-col max-w-full content-center mt-20 m-4">
+      <div className=" flex flex-col items-center self-center overflow-y-auto mt-10 pt-10 max-h-[700px] h-auto min-h-[700px] w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[radial-gradient(circle_at_center,_#041424,_#051320,_#080d13)] border-2 border-[#1b2936] rounded-3xl hover:border-[#677483] transition-colors duration-200">
         <h1 className="text-3xl">
           Task List: <span className="font-bold"> {user}</span>
         </h1>
