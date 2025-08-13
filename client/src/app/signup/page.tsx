@@ -23,8 +23,8 @@ export default function Signup () {
   });
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="h-140 w-100 border  border-[#202b38] p-4 bg-[radial-gradient(circle_at_center,_#041424,_#051320,_#080d13)] hover:border-[#677483] transition-colors duration-800">
+    <div className="flex justify-center items-center min-h-screen mx-4 mt-10">
+      <div className="h-140 w-100 border rounded-3xl border-[#202b38] p-2 bg-[radial-gradient(circle_at_center,_#041424,_#051320,_#080d13)] hover:border-[#677483] transition-colors duration-800">
         <h1 className=" text-white text-4xl pl-4 mt-12">Sing up</h1>
 
         <div className="text-[#8092a1] flex flex-col p-4 pt-10">

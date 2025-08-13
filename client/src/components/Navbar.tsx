@@ -14,6 +14,8 @@ import { logoutUser } from "@/services/Userservices";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../app/store/store";
 import { useRouter } from "next/navigation";
+import { CiMenuKebab } from "react-icons/ci";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -63,7 +65,7 @@ export default function Nav() {
         {/* Izquierda */}
 
         <Link href="/">
-          <div className="relative h-10 w-30 sm:h-15 sm:w-44 rounded-2xl overflow-hidden my-2 mr-4">
+          <div className="relative h-15 w-35 sm:h-15 sm:w-44 rounded-2xl overflow-hidden my-2 mr-4">
             <Image
               src="/Mundo_Nova_Solutions.png"
               alt="Logo"
@@ -98,7 +100,7 @@ export default function Nav() {
           className="ml-auto md:hidden px-3 py-2 rounded-md hover:bg-[#1c2735]"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ☰
+        {menuOpen ? <IoIosCloseCircleOutline size={23}/> : <CiMenuKebab size={23} /> }
         </button>
 
         {/* Derecha en desktop */}
